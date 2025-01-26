@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Entity.Movement
+namespace Code.Entities.Movement
 {
     public class JumpMover : MoveCompo
     {

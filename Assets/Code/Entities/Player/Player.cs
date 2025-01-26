@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
+using Code.Core.TriggerSystem;
 using UnityEngine;
-using Code.Entity;
-using Code.Entity.Movement;
+using Code.Entities;
+using Code.Entities.Movement;
 
-namespace Code.Entity.Player
+namespace Code.Entities.Player
 {
     public class Player : Entity
     {
@@ -21,6 +23,13 @@ namespace Code.Entity.Player
         {
             InputReader.OnKeyPress -= GetCompo<MoveCompo>(true).HandlePressKey;
             InputReader.OnKeyRelease -= GetCompo<MoveCompo>(true).HandleReleaseKey;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            other.gameObject.GetComponentsInChildren<ITriggerEventHandle>()
+                 .ToList()
+                 .ForEach(evt => evt.HandleTrigger(this));
         }
     }
 }

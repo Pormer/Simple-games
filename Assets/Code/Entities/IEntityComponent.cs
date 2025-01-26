@@ -1,4 +1,4 @@
-﻿namespace Code.Entity
+﻿namespace Code.Entities
 {
     public interface IEntityComponent
     {

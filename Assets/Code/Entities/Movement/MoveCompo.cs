@@ -2,7 +2,7 @@
 using UnityEngine;
 using Input = UnityEngine.Windows.Input;
 
-namespace Code.Entity.Movement
+namespace Code.Entities.Movement
 {
     public abstract class MoveCompo : MonoBehaviour, IEntityComponent
     {
